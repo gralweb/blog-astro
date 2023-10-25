@@ -9,6 +9,8 @@ name: Deploy to Firebase Hosting on merge
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
+    env:
+      HYGRAPH_ENDPOINT: ${{ secrets.HYGRAPH_ENDPOINT }}
     steps:
       - uses: actions/checkout@v3
       - run: npm install && npm run build
