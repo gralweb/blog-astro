@@ -6,6 +6,8 @@ name: Deploy to Firebase Hosting on merge
   push:
     branches:
       - master
+  repository_dispatch
+
 env:
   HYGRAPH_ENDPOINT: ${{ secrets.HYGRAPH_ENDPOINT }}
 
