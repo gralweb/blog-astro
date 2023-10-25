@@ -1,0 +1,11 @@
+---
+  const { content, href } = Astro.props
+  const { pathname } = Astro.url
+---
+
+<li class="group text-center text-lg">
+  <a href={href} class="transition-all block tracking-wider text-slate-800 no-underline">
+    {content}
+    <span class={`group-hover:w-full ${pathname === href ? 'w-full' : 'w-0' } transition-all h-[2px] block bg-red-500`}></span>
+  </a>
+</li>
