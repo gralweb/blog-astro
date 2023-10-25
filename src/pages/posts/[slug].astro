@@ -1,0 +1,46 @@
+---
+  import { getAllPostFull } from "../../db/hygraph/getAllPostFull"
+  import Main from "../../layout/Main.astro"
+
+  export const getStaticPaths = async () => {
+    const posts = await getAllPostFull()
+
+    const post = posts?.map(({ slug, title, content }) => {
+      return {
+        params: { slug },
+        props: { title, content }
+      }
+    })
+    return post
+  }
+
+  const { title, content: { html } } = Astro.props
+---
+
+<astro-greet data-title={title}>
+  <Main title={title} description={title}>
+    <article>
+      <Fragment set:html={html}></Fragment>
+    </article>
+  </Main>
+</astro-greet>
+
+<!-- <script>
+  class AstroGreet extends HTMLElement {
+    constructor () {
+      super()
+      
+      const test_clase = this.querySelector('.test-clase')
+      const { title } = this.dataset
+
+      if (test_clase) {
+        console.log('title from AstroGreet', title)
+        console.log('test_clase', test_clase)
+  
+        test_clase.innerHTML = '<h1 class="test-h1">test h1</h1>'
+      }
+    }
+  }
+
+  customElements.define('astro-greet', AstroGreet)
+</script> -->
