@@ -1,0 +1,12 @@
+---
+  const { slug, cover, title } = Astro.props
+---
+
+<article class="gral-banner-card">
+  <a href={`/posts/${slug}`} target="_blank">
+    <img src={cover} alt={title} title={title}>
+    <figcaption>
+      <h2 class="capitalize">{title}</h2>
+    </figcaption>
+  </a>
+</article>
