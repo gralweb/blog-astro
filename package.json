@@ -1,0 +1,21 @@
+{
+  "name": "blog-astro-manual-install",
+  "version": "1.0.0",
+  "description": "blog hecho con astro para hostear en hostinger u otros hosting simples -instalacion manual de astro por problemas con la CLI de astro",
+  "main": "index.js",
+  "author": "gralweb",
+  "license": "MIT",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "3.0.0",
+    "@astrojs/tailwind": "5.0.0",
+    "@supabase/supabase-js": "2.34.0",
+    "astro": "3.1.0",
+    "tailwindcss": "3.0.24"
+  }
+}
