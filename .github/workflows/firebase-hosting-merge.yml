@@ -10,11 +10,9 @@ jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
+      - env: HYGRAPH_ENDPOINT: ${{ secrets.HYGRAPH_ENDPOINT }}
       - uses: actions/checkout@v3
-      - run: npm install && npm run build
-        with:
-          env:
-            HYGRAPH_ENDPOINT: ${{ secrets.HYGRAPH_ENDPOINT }}
+      - run: npm install && npm run build 
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'

@@ -8,11 +8,9 @@ jobs:
     if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
     runs-on: ubuntu-latest
     steps:
+      - env: HYGRAPH_ENDPOINT: ${{ secrets.HYGRAPH_ENDPOINT }}
       - uses: actions/checkout@v3
       - run: npm install && npm run build
-        with:
-          env:
-            HYGRAPH_ENDPOINT: ${{ secrets.HYGRAPH_ENDPOINT }}
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
