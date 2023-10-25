@@ -1,0 +1,15 @@
+---
+  const { slug, title, cover, extract } = Astro.props
+---
+
+<article class="flex items-center flex-wrap gap-2">
+  <section class="min-w-full md:min-w-[40em] flex-1">
+    <a class="font-bold capitalize text-slate-800 text-2xl" href={`posts/${slug}`}>{title}</a>
+  
+    <p class="block py-2">{extract}</p>
+  </section>
+
+  <figure class="flex-1">
+    <img class="rounded-[3px]" src={cover} alt={title} title={title}>
+  </figure>
+</article>
