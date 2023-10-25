@@ -1,0 +1,27 @@
+---
+  import Main from "../../layout/Main.astro"
+  import { getAllPostSimple } from "../../db/hygraph/getAllPostSimple";
+  import BannerSlider from "../../components/commons/BannerSlider.astro";
+  import ArticleCard from "../../components/commons/ArticleCard.astro";
+
+  const posts = await getAllPostSimple()
+---
+
+<Main>
+  <BannerSlider />
+
+  <section class="min-h-[30vh] my-10 flex flex-col gap-5">
+    {
+      posts?.map(({ slug, title, cover, extract }) => {
+        return (
+          <ArticleCard
+            slug={slug}
+            title={title}
+            extract={extract}
+            cover={cover.url}
+          />
+        )
+      })
+    }
+  </section>
+</Main>
