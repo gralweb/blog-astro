@@ -9,8 +9,8 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content={ description }>
-    <title>{ title }</title>
+    <meta name="description" content={ description || 'Gralweb Blogs Astro Descripcion' }>
+    <title>{ title ? `${title} | Gralweb Blogs Astro` : 'Gralweb Blogs Astro' }</title>
     <link rel="stylesheet" href="/styles/globals.css">
     <link rel="sitemap" href="/sitemap-index.xml" />
   </head>
